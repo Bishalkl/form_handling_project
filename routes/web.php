@@ -17,4 +17,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [UserController::class, 'showUsers'])->name('home');
 Route::get('/user/{id}', [UserController::class, 'singleUser'])->name('view.user');
 Route::get('/delete/{id}', [UserController::class, 'deleteUser'])->name('delete.user');
-Route::view('editUser', '/editUser/{id}')->name('edit.user');

@@ -35,20 +35,4 @@ class UserController extends Controller
             return redirect()->route('home');
         }
     }
-
-    // this is update
-    public function updateUsers(string $id, Request $req) {
-        $user = DB::table('users')
-                    ->where('id', $id)
-                    ->update([
-                        'name' => $req->name,
-                        'email' => $req->email,
-                        'age' => $req->age,
-                        'city' =>$req->city,
-                    ]);
-        return view('')
-    }
-
-
-
 }
