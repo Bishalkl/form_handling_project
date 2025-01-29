@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [UserController::class, 'showUsers'])->name('home');
 Route::get('/user/{id}', [UserController::class, 'singleUser'])->name('view.user');
 Route::get('/delete/{id}', [UserController::class, 'deleteUser'])->name('delete.user');
+Route::view('/add', 'addUser')->name('add.form');
+Route::post('/add',[UserController::class, 'addUser'])->name('add.user');

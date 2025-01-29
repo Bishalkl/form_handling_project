@@ -11,7 +11,11 @@
 
     <div class="container mx-auto mt-10 p-5">
         <h2 class="text-3xl font-semibold text-gray-800 mb-6">User Table</h2>
-
+        <div class="mb-6">
+            <a href="{{route('add.form')}}" class="bg-green-500 text-white px-6 py-3 rounded-md hover:bg-green-600 transition duration-200 transform hover:scale-105">
+                <i class="fas fa-plus"></i> Add New
+            </a>
+        </div>
         <div class="overflow-x-auto bg-white shadow-lg rounded-lg">
             <table class="min-w-full bg-white border border-gray-300 rounded-lg table-auto">
                 <thead>

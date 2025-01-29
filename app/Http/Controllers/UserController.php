@@ -35,4 +35,17 @@ class UserController extends Controller
             return redirect()->route('home');
         }
     }
+
+    // add user
+    public function addUser(Request $req) {
+        $user =DB::table('users')
+                   ->insert([
+                        'name' => $req->name,
+                        'email' => $req->email,
+                        'age' => $req->age,
+                        'city' => $req->city,
+                   ]);
+
+         return redirect()->route('home');
+    }
 }
