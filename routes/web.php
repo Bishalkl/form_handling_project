@@ -3,19 +3,17 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+// -------------------UserController--------------------//
+Route::controller(UserController::class)->group(function(){
 
-Route::get('/', [UserController::class, 'showUsers'])->name('home');
-Route::get('/user/{id}', [UserController::class, 'singleUser'])->name('view.user');
-Route::get('/delete/{id}', [UserController::class, 'deleteUser'])->name('delete.user');
-Route::view('/add', 'addUser')->name('add.form');
-Route::post('/add',[UserController::class, 'addUser'])->name('add.user');
+    Route::get('/','showUsers')->name('home');
+    Route::get('/user/{id}', 'singleUser')->name('view.user');
+    Route::delete('/delete/{id}', 'deleteUser')->name('delete.user');
+    Route::get('/add', 'addUser')->name('add.form');
+    Route::post('/user','addUser')->name('add.user');
+    Route::get('/user/{id}/edit', 'editPage')->name('edit.user');
+    Route::put('/user/{id}', 'updateUser')->name('update.user');
+});
+
+
+

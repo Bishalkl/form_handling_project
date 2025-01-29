@@ -19,7 +19,7 @@
                     <p class="text-gray-700"><strong>City:</strong> {{$user->city}}</p>
                 </div>
                 <div class="mt-6 text-center">
-                    <a href="{{route('edit.user')}}" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200">
+                    <a href="{{route('edit.user', $user->id)}}" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200">
                         Edit Details
                     </a>
                     <a href="{{route('home')}}" class="bg-yellow-500 ml-4 text-white px-4 py-2 rounded-md hover:bg-yellow-600 transition duration-200">
