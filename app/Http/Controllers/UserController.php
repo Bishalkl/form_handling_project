@@ -32,14 +32,13 @@ class UserController extends Controller
 
     // this is delete
     public function deleteUser(string $id) {
-        $deleteRows = DB::table('users')
-                    ->where('id', $id)
-                    ->delete();
-        if($deleteRows > 0) {
-            return redirect()->route('home');
-        }
+       $user = DB::table('users')->where('id', $id)->first();
+       if(!$user) {
+            return response('<h1>User not found</h1>', 404);
+       }
 
-        return response('<h1>Operation is unsuccessful</h1>', 404);
+       $deleteRows = DB::table('users')->where('id', $id)->delete();
+       return redirect()->route('home');
     }
 
     // add user
@@ -58,34 +57,31 @@ class UserController extends Controller
         return response('<h1>Operation is unsuccessful</h1>', 400);
     }
 
-    // edit userpage
-    public function editPage(string $id) {
-        $user = DB::table('users')
-                   ->where('id', $id)
-                   ->first();
-
-        if(!$user) {
-            return response('<h1>User not found</h1>', 404);
-        } else {
-            return view('updatePage', ['data' => $user]);
-        }
+    //update page
+    public function updatepage(string $id) {
+        // $user = DB::table('users')->where('id', $id)->get();
+        $user = DB::table('users')->find($id);
+        return view('updateUser', ['data' => $user]);
     }
 
     // update user
-    public function updateUser(Request $req, string $id) {
-        $updated = DB::table('users')
-                   ->where('id', $id)
-                   ->update([
-                        'name' => $req->name,
-                        'email' => $req->email,
-                        'age' => $req->age,
-                        'city' => $req->city,
-                   ]);
+    public function updateUser(Request $req, $id) {
+        $update = DB::table('users')
+                            ->where('id', $id)
+                            ->update([
 
-        if($updated) {
-            return redirect()->route('home');
+                                    'name' => $req->name,
+                                    'email' => $req->email,
+                                    'age' => $req->age,
+                                    'city' => $req->city,
+                                ]);
+
+        if(!$update) {
+                response('<h1>Operation is unsuccessful</h1>', 400);
         }
 
-        return response('<h1>Operation is unsuccessful</h1>', 400);
+        return redirect()->route('home');
+
     }
+
 }

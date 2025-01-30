@@ -12,7 +12,7 @@
     <div class="container mx-auto mt-10 p-5">
         <h2 class="text-3xl font-semibold text-gray-800 mb-6">User Table</h2>
         <div class="mb-6">
-            <a href="{{route('add.form')}}" class="bg-green-500 text-white px-6 py-3 rounded-md hover:bg-green-600 transition duration-200 transform hover:scale-105">
+            <a href="/addUser" class="bg-green-500 text-white px-6 py-3 rounded-md hover:bg-green-600 transition duration-200 transform hover:scale-105">
                 <i class="fas fa-plus"></i> Add New
             </a>
         </div>
@@ -41,6 +41,9 @@
                                 </a>
                                 <a href="{{route('delete.user', $user->id)}}" class="bg-red-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-md hover:bg-red-600 transition duration-200 transform hover:scale-105" aria-label="Delete user {{$user->name}}">
                                     <i class="fas fa-trash"></i> <span class="hidden sm:inline">Delete</span>
+                                </a>
+                                <a href="{{route('update.page', $user->id)}}" class="bg-yellow-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-md hover:bg-yellow-600 transition duration-200 transform hover:scale-105" aria-label="Delete user {{$user->name}}">
+                                    <i class="fas fa-trash"></i> <span class="hidden sm:inline">Update</span>
                                 </a>
                             </div>
                         </td>

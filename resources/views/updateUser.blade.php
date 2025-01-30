@@ -15,15 +15,17 @@
 
         <!-- Add User Form -->
         <div class="bg-white shadow-lg rounded-lg p-8 max-w-2xl mx-auto">
-            <form action="{{route('add.user')}}" method="POST" class="space-y-6">
+            <form action="{{route('update.user', $data->id)}}" method="POST" class="space-y-6">
                 <!-- Name Field -->
                 @csrf
+                @method('PUT')
                 <div>
                     <label for="name" class="block text-lg font-medium text-gray-700 mb-2">Name</label>
                     <input
                         type="text"
                         id="name"
                         name="name"
+                        value="{{$data->name}}"
                         placeholder="Enter name"
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition duration-200"
                         required
@@ -37,6 +39,7 @@
                         type="email"
                         id="email"
                         name="email"
+                        value="{{$data->email}}"
                         placeholder="Enter email"
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition duration-200"
                         required
@@ -50,6 +53,7 @@
                         type="number"
                         id="age"
                         name="age"
+                        value="{{$data->age}}"
                         placeholder="Enter age"
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition duration-200"
                         required
@@ -63,6 +67,7 @@
                         type="text"
                         id="city"
                         name="city"
+                        value="{{$data->city}}"
                         placeholder="Enter city"
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition duration-200"
                         required
@@ -75,7 +80,7 @@
                         type="submit"
                         class="bg-green-500 text-white px-6 py-3 rounded-md hover:bg-green-600 transition duration-200 transform hover:scale-105"
                     >
-                        <i class="fas fa-plus"></i> Add User
+                        <i class="fas fa-plus"></i> Update
                     </button>
                 </div>
             </form>
