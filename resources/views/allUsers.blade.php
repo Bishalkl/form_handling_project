@@ -51,8 +51,10 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="mt-4 flex justify-center items-center p-4 bg-gray-100 rounded-b-lg shadow-inner">
+                <div class="flex space-x-2">{{$data->links()}}</div>
+            </div>
         </div>
     </div>
-
 </body>
 </html>

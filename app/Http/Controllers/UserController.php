@@ -9,7 +9,9 @@ class UserController extends Controller
 {
     // to get the all data
     public function showUsers() {
-        $users = DB::table('users')->get();
+        $users = DB::table('users')
+                    ->orderBy('id')
+                    ->cursorPaginate(4);
 
        if($users->isEmpty()) {
         return response('<h1>No users found</h1>', 404);
